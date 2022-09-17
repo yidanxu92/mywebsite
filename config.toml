@@ -1,0 +1,60 @@
+baseURL = "https://yidanxu92.github.io/"
+languageCode = 'en-us'
+title = "Yidan's Site"
+theme = "osprey"
+canonifyURLS = true
+googleAnalytics = ""
+disqusShortname = "yidan"
+
+[Params]
+  tagline = "Yidan's Site"
+  author = "Yidan Xu"
+  description = "Yidan's personal website"
+  logoBig = "/images/profile_pic_cat_fish.jpg"
+  logoSmall = "/images/profile_pic_cat_fish.jpg"
+  favicon = "favicon.ico"
+  opengraphImage = "/images/profile_pic_cat_fish.jpg"
+  email = ""
+  googleTagManager = ""
+  customCSS = false
+
+  enforceSinglePage=false
+
+  twitter = ""
+  linkedin = ""
+  github = "yidanxu92"
+  facebook = ""
+
+  copyright = false
+  credit = false
+
+  cacheBustCSS = true
+  cacheBustJS = true
+
+
+  highlightJS = true
+  highlightJSStyle = "" 
+  highlightJSScript = ""
+
+  ajaxFormspree = false
+  ajaxFormspreeGold = false
+  ajaxBasin = "https://usebasin.com/f/0eae7044d4c2"
+
+  lazyloading = true
+
+[[menu.main]]
+  name = "About"
+  url  = "/#about"
+  weight = 1
+[[menu.main]]
+  name = "Work"
+  url  = "/#work"
+  weight = 2
+[[menu.main]]
+  name = "Contact"
+  url  = "/#contact"
+  weight = 3
+
+
+
+
