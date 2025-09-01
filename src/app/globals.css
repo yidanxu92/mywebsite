@@ -39,16 +39,19 @@ img.rounded-img { @apply rounded-full border border-blue-200/50 dark:border-blue
   .section-hero {
     position: relative;
     background: theme('colors.hero');
+    background-image:url('/img/giraffe_transparent.png');
+    background-repeat: no-repeat, no-repeat;
+    background-position:
+    left -40px top -30px;
+    background-size:
+    320px auto,
+    clamp(200px, 24vw, 360px) auto;
     color: #fff;
     padding-block: clamp(80px, 10vw, 140px);
+
+
   }
-  .section-hero::after {
-    content:"";
-    position:absolute; left:0; right:0; bottom:-1px;
-    height: 12vw;
-    background: theme('colors.cream');
-    clip-path: polygon(0 60%,100% 35%,100% 100%,0 100%);
-  }
+
 
   /* Optional corner illustrations (put SVGs/PNGs in /public and keep or remove these) */
   .section-hero {
@@ -59,11 +62,21 @@ img.rounded-img { @apply rounded-full border border-blue-200/50 dark:border-blue
   }
   .section-hero::before {
     content:"";
-    position:absolute; right:-60px; bottom:-40px;
+    position:absolute; right:0px; bottom:-40px;
     width: clamp(260px, 36vw, 560px);
     height: clamp(260px, 36vw, 560px);
-    background: url('/flower-bottom-right.svg') no-repeat right bottom / contain;
+    background: url('/img/giraffe_transparent.png') no-repeat right bottom / contain;
     pointer-events: none;
+    z-index:1;
+  }
+
+  .section-hero::after {
+    content:"";
+    position:absolute; left:0; right:0; bottom:-1px;
+    height: 12vw;
+    background: theme('colors.cream');
+    clip-path: polygon(0 60%,100% 35%,100% 100%,0 100%);
+    z-index:0;
   }
 
   /* hero heading tone closer to the reference */
@@ -76,6 +89,7 @@ img.rounded-img { @apply rounded-full border border-blue-200/50 dark:border-blue
   }
   .hero-strong { font-weight: 600; }     /* 仅对“Designer turned Developer”做半粗 */
 }
+
 @layer components {
   /* === 词轮播（打字机效果版） === */
   .rotator {
@@ -328,7 +342,207 @@ img.rounded-img { @apply rounded-full border border-blue-200/50 dark:border-blue
         margin-top: .25rem;
         color: rgba(19,32,81,.66);
       }
+
+      @layer components {
+        /* 整块：紫蓝背景 + 顶部桃色斜切 */
+        .section-work{
+          position: relative;
+          overflow: hidden;
+          background: theme('colors.work');
+          padding-block: clamp(64px, 8vw, 104px);
+          color: rgba(255,255,255,.92);
+        }
+        .section-work > .container{ position: relative; z-index: 1; }
+        .section-work::before{
+          content:"";
+          position:absolute; left:0; right:0; top:-1px;
+          height: clamp(90px, 10vw, 160px);
+          background: theme('colors.peach');
+          /* 从左到右上扬的斜切（像参考图那样切进来） */
+          clip-path: polygon(0 65%, 100% 12%, 100% 0, 0 0);
+          z-index: 0;
+        }
+      
+        /* 标题风格 */
+        .work-overline{
+          font: 600 12px/1 Inter, system-ui;
+          letter-spacing:.18em; text-transform:uppercase;
+          color: rgba(255,255,255,.9);
+          margin-bottom: 12px;
+        }
+        .work-h2{                 /* 大标题：深蓝衬线 */
+          font-family:'Fraunces', serif;
+          color: theme('colors.ink');
+          font-weight: 800;
+          font-size: clamp(28px, 4.2vw, 46px);
+          line-height: 1.1;
+          margin: 0 0 22px;
+        }
+      
+        /* 单个项目 */
+        .work-row{ margin-top: clamp(28px, 4vw, 40px); }
+        .work-title{             /* 杏色超链接标题 */
+          display:block;
+          font-family:'Fraunces', serif;
+          font-weight:800;
+          color: theme('colors.apricot');
+          font-size: clamp(20px, 2.8vw, 28px);
+          margin: 8px 0 12px;
+        }
+        .work-desc{ line-height: 1.9; max-width: 52ch; }
+      
+        /* CTA 薄荷按钮（斜体衬线） */
+        .btn-mint{
+          display:inline-flex; align-items:center; justify-content:center;
+          padding: 14px 22px; border-radius: 12px;
+          background: theme('colors.mint'); color: theme('colors.ink');
+          font-family:'Fraunces', serif; font-weight:800; font-style: italic;
+          box-shadow: 0 10px 24px rgba(0,0,0,.18);
+          border: 1px solid rgba(255,255,255,.18);
+          transition: transform .12s ease, filter .12s ease;
+        }
+        .btn-mint:hover{ transform: translateY(-1px); filter: brightness(1.04); }
+      
+        /* 右侧截图（拟物一点的阴影/描边） */
+        .device{
+          position: relative;
+          border-radius: 18px;
+          overflow: hidden;
+          box-shadow:
+            0 28px 80px -20px rgba(0,0,0,.45),
+            0 10px 28px -10px rgba(0,0,0,.35);
+          border: 1px solid rgba(255,255,255,.18);
+        }
+        .device img{ display:block; width:100%; height:auto; }
+      }
+      
     }
+
+    @layer components {
+      /* —— 区块容器：沙色背景 + 顶部薄薄的绿色斜带 + 右上仙人掌 —— */
+      .section-contact{
+        position: relative;
+        overflow: hidden;
+        background: theme('colors.sand');
+        padding-block: clamp(64px, 8vw, 104px);
+      }
+      .section-contact > .container{ position: relative; z-index: 1; }
+    
+      /* 顶部绿色“薄横带”，从左到右略微下倾（和参考图一致） */
+      .section-contact::before{
+        content:"";
+        position:absolute; left:0; right:0; top:0;
+        height: clamp(60px, 7vw, 120px);
+        background: theme('colors.work');
+        clip-path: polygon(0 0, 100% 0, 100% 65%, 0 12%);
+        z-index: 0;
+      }
+    
+      /* 右上角仙人掌装饰（可选：把 dec-cactus.svg 放 /public/ 下） */
+      .section-contact::after{
+        content:"";
+        position:absolute; right:-24px; top:-10px;
+        width: clamp(180px, 22vw, 320px);
+        height: clamp(160px, 20vw, 300px);
+        background: url('/dec-cactus.svg') no-repeat right top / contain;
+        opacity: .95;
+        pointer-events:none;
+        z-index: 0;
+      }
+    
+      /* 标题与说明 */
+      .contact-overline{
+        font: 600 12px/1 Inter, system-ui;
+        letter-spacing:.18em; text-transform:uppercase;
+        color:#E86A6A;              /* 参照图里的红色 overline */
+        margin-bottom: 12px;
+      }
+      .contact-h2{
+        font-family:'Fraunces', serif;
+        font-weight:800;
+        color: theme('colors.ink');
+        font-size: clamp(28px, 4.2vw, 46px);
+        line-height:1.1;
+        margin: 0 0 18px;
+      }
+      .contact-lead{ color:#2b2b2b; line-height:1.85; }
+    
+      .input-underline{
+        width: 100%;
+        padding: 12px 14px;                 
+        border-radius: 10px;
+        background: #fff;
+        border: 1px solid rgba(0,0,0,.05);   
+        border-bottom-width: 4px;            
+        border-bottom-color: rgba(244, 63, 94, .42); 
+        box-shadow: none;
+        transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+      }
+      .input-underline::placeholder{ color: #9aa3aa; }
+      
+      .input-underline:hover{
+        border-bottom-color: rgba(244, 63, 94, .55);
+      }
+      
+      .input-underline:focus{
+        outline: none;
+        border-bottom-color: rgba(244, 63, 94, .85);
+        box-shadow:
+        0 2px 0 0 rgba(244, 63, 94, .18),
+        0 0 0 2px rgba(62, 92, 245, .12);
+      }
+      
+    
+      /* 右侧“社交”列 */
+      .contact-social h4{
+        font-weight: 700; color:#2b2b2b; margin: 0 0 10px;
+      }
+      .social-list a{
+        display: inline-flex; align-items: center; justify-content: center;
+        width: 36px; height: 36px; border-radius: 8px;
+        color: theme('colors.brand'); background: rgba(62,92,245,.10);
+        transition: transform .12s ease, background .12s ease;
+      }
+      .social-list a:hover{ transform: translateY(-1px); background: rgba(62,92,245,.16); }
+    }
+
+    @layer components {
+      /* 渐变紫粉的底栏 + 轻描边 + 顶部圆角 */
+      .footer-bar{
+        position: relative;
+        background: linear-gradient(180deg, #e6b5f0 0%, #d2a5e3 60%, #c99bdc 100%);
+        color: #1f2937;                         /* slate-800 左右 */
+        padding-block: 14px;                    /* 跟参考图高度差不多 */
+        border-top: 1px solid rgba(255,255,255,.55);
+        box-shadow:
+          inset 0 6px 14px -10px rgba(0,0,0,.25), /* 顶部一点内阴影，和截图接近 */
+          inset 0 1px 0 rgba(255,255,255,.65);
+        border-top-left-radius: 18px;
+        border-top-right-radius: 18px;
+      }
+    
+      /* 深色模式下，让文字更亮一点 */
+      @media (prefers-color-scheme: dark){
+        .footer-bar{
+          color: rgba(255,255,255,.92);
+          border-top-color: rgba(255,255,255,.35);
+          box-shadow:
+            inset 0 6px 14px -10px rgba(0,0,0,.5),
+            inset 0 1px 0 rgba(255,255,255,.25);
+        }
+      }
+
+      @layer components {
+        .tiger-img{
+          width: clamp(180px, 12vw, 320px);
+          height: auto;
+          filter: drop-shadow(0 10px 18px rgba(0,0,0,.18));
+        }
+      }
+      
+    }
+    
+    
     
   
   

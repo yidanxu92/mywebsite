@@ -38,10 +38,7 @@ export default function Nav() {
             <Item id="about" label="about" />
             <Item id="skills" label="skills & tools" />
             <Item id="work" label="work" />
-            <Item id="testimonials" label="testimonials" />
             <Item id="contact" label="contact" />
-            <Link className="nav-link" href="https://your-blog.example" target="_blank">blog ↗</Link>
-            <Link className="nav-link" href="https://updates.example" target="_blank">updates ↗</Link>
           </nav>
         </div>
         <div className="flex items-center gap-2">
@@ -57,15 +54,7 @@ export default function Nav() {
         </div>
       </div>
 
-      <div id="mobileMenu" className={`${open ? 'block' : 'hidden'} md:hidden border-t border-white/25`}>
-        <div className="container py-2 grid gap-1">
-          {sections.map((id) => (
-            <a key={id} href={`#${id}`} className="nav-link" onClick={() => setOpen(false)}>{id}</a>
-          ))}
-          <Link href="https://your-blog.example" target="_blank" className="nav-link">blog ↗</Link>
-          <Link href="https://updates.example" target="_blank" className="nav-link">updates ↗</Link>
-        </div>
-      </div>
+     
     </header>
   );
 }
