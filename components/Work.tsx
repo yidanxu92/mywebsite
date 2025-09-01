@@ -22,6 +22,7 @@ const projects = [
     },
     ];
 
+
     export default function Work() {
         return (
         <section id="work" className="section">

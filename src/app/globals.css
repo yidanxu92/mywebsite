@@ -1,40 +1,335 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Fraunces:wght@700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root { --ring: #93c5fd; }
-
-
 html { scroll-behavior: smooth; }
 
-
-body {
-@apply bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100;
-}
-
-
+body { @apply bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100; }
 .container { @apply max-w-6xl mx-auto px-5; }
-
-
 .card { @apply bg-slate-50/60 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800/60 rounded-2xl p-5 shadow-soft; }
-
-
 .btn { @apply inline-flex items-center gap-2 font-semibold rounded-xl border border-slate-300/80 dark:border-slate-700/80 px-4 py-2 hover:bg-slate-100/60 dark:hover:bg-slate-800/60 transition; }
-
-
 .badge { @apply inline-flex items-center px-3 py-1 rounded-full text-xs bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300; }
-
-
 .section { @apply py-16 scroll-mt-24; }
-
-
 h1 { @apply text-4xl md:text-6xl font-extrabold tracking-tight; }
-
-
 h2 { @apply text-2xl md:text-3xl font-extrabold tracking-tight mb-6; }
-
-
 .lead { @apply text-base md:text-lg text-slate-600 dark:text-slate-300; }
-
-
 img.rounded-img { @apply rounded-full border border-blue-200/50 dark:border-blue-900/40; }
+
+@layer components {
+  /* ---------- NAV ---------- */
+  .header-brand { background: theme('colors.brand'); color: #fff; }
+  .nav-link {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 700; /* a bit lighter than 800 for the ref look */
+    color: rgb(255 255 255 / 0.95);
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.75rem;
+  }
+  .nav-link:hover { color: #fff; text-decoration: underline; text-underline-offset: 6px; }
+  .nav-link.active { text-decoration: underline; text-underline-offset: 6px; }
+
+  #mobileMenu { background: theme('colors.brand'); }
+  #mobileMenu a { color:#fff; }
+
+  /* ---------- HERO ---------- */
+  .section-hero {
+    position: relative;
+    background: theme('colors.hero');
+    color: #fff;
+    padding-block: clamp(80px, 10vw, 140px);
+  }
+  .section-hero::after {
+    content:"";
+    position:absolute; left:0; right:0; bottom:-1px;
+    height: 12vw;
+    background: theme('colors.cream');
+    clip-path: polygon(0 60%,100% 35%,100% 100%,0 100%);
+  }
+
+  /* Optional corner illustrations (put SVGs/PNGs in /public and keep or remove these) */
+  .section-hero {
+    background-image: url('/leaf-top-left.svg');
+    background-repeat: no-repeat;
+    background-position: left -48px top -36px;
+    background-size: clamp(200px, 24vw, 360px) auto;
+  }
+  .section-hero::before {
+    content:"";
+    position:absolute; right:-60px; bottom:-40px;
+    width: clamp(260px, 36vw, 560px);
+    height: clamp(260px, 36vw, 560px);
+    background: url('/flower-bottom-right.svg') no-repeat right bottom / contain;
+    pointer-events: none;
+  }
+
+  /* hero heading tone closer to the reference */
+  .hero-title {
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 500;                 /* 普通/中等，不再是粗黑 */
+    line-height: 1.15;
+    letter-spacing: .2px;
+    font-size: clamp(28px, 4.6vw, 48px);  /* 比之前 60px 更接近原站 */
+  }
+  .hero-strong { font-weight: 600; }     /* 仅对“Designer turned Developer”做半粗 */
+}
+@layer components {
+  /* === 词轮播（打字机效果版） === */
+  .rotator {
+    position: relative;
+    display: inline-block;
+    height: 1em;
+    line-height: 1;
+    vertical-align: baseline;
+    overflow: hidden;
+  }
+  .rotator__measure {
+    visibility: hidden;
+    white-space: nowrap;
+  }
+  .rotator__inner {
+    position: absolute;
+    left: 0;
+    top: 0;
+    will-change: transform;
+    animation: typewriter 16s steps(4) infinite;
+  }
+  .rotator__inner > span {
+    display: block;
+    white-space: nowrap;
+    height: 1em;
+    line-height: 1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+
+  /* 打字机效果：每个词在同一个位置淡入淡出 */
+  @keyframes typewriter {
+    0%, 20% { 
+      transform: translateY(0);
+      opacity: 1;
+    }
+    25%, 45% { 
+      transform: translateY(0);
+      opacity: 1;
+    }
+    50%, 70% { 
+      transform: translateY(0);
+      opacity: 1;
+    }
+    75%, 95% { 
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% { 
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  /* 每个词的单独动画 */
+  .rotator__inner > span:nth-child(1) { animation: fadeInOut 16s infinite; }
+  .rotator__inner > span:nth-child(2) { animation: fadeInOut 16s infinite 4s; }
+  .rotator__inner > span:nth-child(3) { animation: fadeInOut 16s infinite 8s; }
+  .rotator__inner > span:nth-child(4) { animation: fadeInOut 16s infinite 12s; }
+
+  @keyframes fadeInOut {
+    0%, 20% { opacity: 1; }
+    25%, 95% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rotator__inner { animation: none; }
+  }
+
+  @layer components {
+    /* —— 区块背景（奶油色）+ 顶部紫色斜切 —— */
+    .section-about{
+      position: relative;
+      background: theme('colors.cream');
+      padding-block: clamp(64px, 8vw, 96px);
+    }
+    
+  
+    /* 小标题 ABOUT（红色字母上栏） */
+    .overline{
+      font: 600 12px/1 Inter,system-ui;
+      letter-spacing:.18em; text-transform:uppercase;
+      color:#E45C5C;  /* 你也可换成 brand 或其它色 */
+      margin-bottom:12px;
+    }
+  
+    /* 左列大标题（深蓝衬线）*/
+    .h2-serif{
+      font-family:'Fraunces', serif;
+      color: theme('colors.ink');
+      font-weight:800;
+      font-size: clamp(26px,3.8vw,44px);
+      line-height:1.1;
+      margin:0 0 16px;
+    }
+  
+    /* 右列副标题（淡蓝衬线） */
+    .about-intro{
+      font-family:'Fraunces', serif;
+      color:#5f6fe1;             /* 接近截图的淡蓝，可按需微调 */
+      font-weight:700;
+      font-size: clamp(20px,2.6vw,28px);
+      line-height:1.25;
+      margin: 0 0 14px;
+    }
+  
+    /* 正文排版（行距更舒适、链接高亮） */
+    .about-body p{ 
+      margin:14px 0; 
+      color:#3b3b3b; 
+      line-height:1.85;
+    }
+    .about-body a{ color: theme('colors.brand'); text-decoration: underline; }
+    .about-body strong{ font-weight:700; }
+  
+    /* 左侧头像：带柔光底圈与描边 */
+    .avatar-frame{
+      width: clamp(160px, 22vw, 230px);
+      aspect-ratio: 1/1;
+      border-radius: 999px;
+      padding:10px;
+      background: radial-gradient(100% 100% at 30% 20%, #ffd9e2 0%, #cfe9ff 50%, #ffffff 100%);
+      box-shadow: 0 10px 28px rgba(0,0,0,.12);
+      border: 1px solid rgba(255,255,255,.6);
+    }
+    .avatar-img{
+      width:100%; height:100%; border-radius:inherit; object-fit:cover;
+      border:3px solid rgba(255,255,255,.8);
+    }
+  
+    /* 斜体下划线链接 “Get In Touch!” */
+    .about-cta{
+      display:inline-block; margin-top:10px;
+      font-family:'Fraunces', serif; font-weight:700; font-style: italic;
+      color: theme('colors.ink');
+      text-decoration: underline; text-underline-offset: 4px;
+    }
+  }
+
+  @layer components {
+    /* 区块背景：桃粉 + 顶部斜切（从奶油色过来） */
+    .section-skills{
+      position: relative;
+      background: theme('colors.peach');
+      padding-block: clamp(64px, 8vw, 96px);
+    }
+    .section-skills::before{
+      content:"";
+      position:absolute; left:0; right:0; top:-10vw;
+      height:12vw; background: theme('colors.cream');
+      /* 右高左低的斜切 */
+      clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 100%);
+    }
+
+    @layer components {
+      .section-skills{
+        position: relative;
+        overflow: hidden;                          /* 确保装饰不溢出 */
+        background: theme('colors.peach');
+        padding-block: clamp(64px, 8vw, 96px);
+      }
+      .section-skills > .container{
+        position: relative;
+        z-index: 1;                                 /* 文字/图标在装饰上方 */
+      }
+    
+      /* 顶部的 cream 斜边条（从奶油色过渡进来） */
+      .section-skills::before{
+        content:"";
+        position:absolute; left:0; right:0; top:-1px;
+        height: clamp(70px, 9vw, 160px);
+        background: theme('colors.cream');
+        /* 右高左低的斜切 */
+        clip-path: polygon(0 65%, 100% 100, 100% 0, 0 0);
+        z-index: 0;
+      }
+    
+   
+    }
+    
+  
+    /* 上方 overline 与标题 */
+    .overline{
+      font: 600 12px/1 Inter,system-ui;
+      letter-spacing:.18em; text-transform:uppercase;
+      color:#ffe9e1;           /* 在桃粉上微亮一点 */
+      margin-bottom:14px;
+    }
+    .h2-serif{
+      font-family:'Fraunces', serif;
+      color: theme('colors.ink');
+      font-weight:800;
+      font-size: clamp(26px,3.8vw,44px);
+      line-height:1.1;
+      margin: 0 0 18px;
+    }
+    .skills-lead{
+      color: rgba(19,32,81,.85);        /* 深蓝灰 */
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+  
+      /* —— 栅格 —— */
+      .skill-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0,1fr));
+        gap: 2.5rem 3.5rem;                /* 行高/列距更宽，接近参考图 */
+      }
+      @media (min-width: 640px){ .skill-grid{ grid-template-columns: repeat(3, minmax(0,1fr)); } }
+      @media (min-width: 768px){ .skill-grid{ grid-template-columns: repeat(4, minmax(0,1fr)); } }
+      @media (min-width: 1024px){ .skill-grid{ grid-template-columns: repeat(6, minmax(0,1fr)); } }
+    
+      /* —— 单项 —— */
+      .skill-item{
+        text-align: center;
+      }
+    
+      /* 图标容器：无背景、仅用于居中 */
+      .skill-glyph{
+        width: 88px; height: 88px;
+        margin-inline: auto;
+        display:flex; align-items:center; justify-content:center;
+      }
+    
+      /* 若是 <img> 图标：一键“变白” */
+      .skill-icon-img{
+        width: 88px; height: 88px; object-fit: contain;
+        filter: brightness(0) invert(1) opacity(.95);   /* 把深色 SVG/PNG 反相成白色 */
+      }
+    
+      /* 若无 SVG，用字母缩写兜底（简洁白块） */
+      .skill-letter{
+        display:inline-flex; align-items:center; justify-content:center;
+        width: 74px; height: 74px; border-radius: 16px;
+        color:#fff; font-weight:800; font-size: 28px;
+        background: rgba(255,255,255,.18);
+        border: 1px solid rgba(255,255,255,.30);
+      }
+    
+      /* 文案：深蓝主标题 + 次要灰蓝 */
+      .skill-name{
+        margin-top: .75rem;
+        color: theme('colors.ink');
+        font-weight: 700;
+      }
+      .skill-meta{
+        margin-top: .25rem;
+        color: rgba(19,32,81,.66);
+      }
+    }
+    
+  
+  
+}

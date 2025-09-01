@@ -21,11 +21,11 @@ export default function Contact() {
     )}&body=${encodeURIComponent(`${msg}\n\nFrom: ${name} <${email}>`)}`;
     }}
     >
-        <label className="font-semibold" htmlFor="name">Name*</label>
-<input className="btn !justify-start" id="name" name="name" required />
-<label className="font-semibold" htmlFor="email">Email*
-</label>
-<input className="btn !justify-start" id="email" name="email" type="email" required />
+    <label className="font-semibold" htmlFor="name">Name*</label>
+    <input className="btn !justify-start" id="name" name="name" required />
+    <label className="font-semibold" htmlFor="email">Email*
+    </label>
+    <input className="btn !justify-start" id="email" name="email" type="email" required />
 <label className="font-semibold" htmlFor="msg">Message*</label>
 <textarea className="btn !justify-start h-32" id="msg" name="msg" required />
 <button className="btn mt-2" type="submit">Send email</button>
