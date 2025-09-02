@@ -2,18 +2,16 @@
 type Skill = { t: string; k: string; icon?: string };
 
 const items: Skill[] = [
-  { t: 'HTML5',         k: 'semantics · a11y',          icon: '/icons/html5.svg' },
-  { t: 'CSS3 / SASS',   k: 'flex · grid · animation',   icon: '/icons/css3.svg'  },
-  { t: 'JavaScript',    k: 'fetch · async · modules',   icon: '/icons/js.svg'    },
-  { t: 'React',         k: 'hooks · state · router',    icon: '/icons/react.svg' },
-  { t: 'Git',           k: '',                          icon: '/icons/git.svg'   },
-  { t: 'Github',        k: '',                          icon: '/icons/github.svg'},
-  { t: 'RESTful APIs',  k: '',                          icon: '/icons/api.svg'   },
-  { t: 'Command Line',  k: '',                          icon: '/icons/terminal.svg'},
-  { t: 'VS Code',       k: '',                          icon: '/icons/vscode.svg'},
-  { t: 'Responsive Websites', k: '',                    icon: '/icons/responsive.svg'},
-  { t: 'Web Accessibility',   k: '',                    icon: '/icons/a11y.svg'  },
-  { t: 'WordPress',     k: '',                          icon: '/icons/wordpress.svg'},
+  { t: 'HTML5',         k: 'semantics · a11y',          icon: '/icons/html5.png' },
+  { t: 'CSS3 / SASS',   k: 'flex · grid · animation',   icon: '/icons/css3.png'  },
+  { t: 'JavaScript',    k: 'fetch · async · modules',   icon: '/icons/js.png'    },
+  { t: 'React',         k: 'hooks · state · router',    icon: '/icons/react.png' },
+  { t: 'Github',        k: '',                          icon: '/icons/github.png'},
+  { t: 'Node.js',  k: '',                          icon: '/icons/nodejs.png'   },
+  { t: 'Typescript',  k: '',                          icon: '/icons/typescript.png'},
+  { t: 'Responsive Websites', k: '',                    icon: '/icons/responsive.png'},
+  { t: 'Web Accessibility',   k: '',                    icon: '/icons/w3c.png'  },
+
 ];
 
 /* 兜底缩写（没有 icon 时才用） */

@@ -22,12 +22,7 @@ export default function Contact() {
                 <input className="input-underline" type="text" name="name" placeholder="Name*" required />
               </label>
               <div className="hidden md:block" aria-hidden="true" />
-                
-                <label className="block">
-                  <span className="sr-only">Name</span>
-                  <input className="input-underline" type="text" name="name" placeholder="Name*" required />
-                </label>
-                <div className="hidden md:block" aria-hidden="true" />
+              
   
                 <label className="block">
                   <span className="sr-only">Email</span>

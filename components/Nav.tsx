@@ -2,7 +2,6 @@
 'use client';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import ThemeToggle from './ThemeToggle';
 import { useScrollSpy } from '../lib/useScrollSpy';
 
 const sections = ['home','about','skills','work','testimonials','contact'] as const;
@@ -42,15 +41,8 @@ export default function Nav() {
           </nav>
         </div>
         <div className="flex items-center gap-2">
-          <ThemeToggle />
-          <button
-            className="btn md:hidden text-white border-white/35 bg-white/15"
-            aria-expanded={open}
-            aria-controls="mobileMenu"
-            onClick={() => setOpen(!open)}
-          >
-            ☰ <span className="sr-only">Open menu</span>
-          </button>
+         
+          
         </div>
       </div>
 

@@ -12,11 +12,11 @@ export default function Hero() {
   <span className="rotator">
     <span aria-hidden className="rotator__measure">fermented-food enjoyer</span>
     <span className="rotator__inner rotator--4">
-      <span>chocolate connoisseur</span>
-      <span>ice-cream sommelier</span>
-      <span>world traveller</span>
-      <span>cat servant</span>
-      <span aria-hidden>chocolate connoisseur</span> 
+      <span>Coffee dependent☕️</span>
+      <span>ice-cream sommelier🍦</span>
+      <span>nature lover🌳</span>
+      <span>cat servant🐱</span>
+      <span aria-hidden>coffee dependent☕️</span> 
     </span>
   </span>
  
