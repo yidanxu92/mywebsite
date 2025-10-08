@@ -359,7 +359,7 @@ img.rounded-img { @apply rounded-full border border-blue-200/50 dark:border-blue
           height: clamp(90px, 10vw, 160px);
           background: #eeb6aa;
           /* 从左到右上扬的斜切（像参考图那样切进来） */
-          clip-path: polygon(0 65%, 100% 12%, 100% 0, 0 0);
+          clip-path: polygon(0 0, 100% 0, 100% 65%, 0 12%);
           z-index: 0;
         }
       
