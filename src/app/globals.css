@@ -74,7 +74,7 @@ img.rounded-img { @apply rounded-full border border-blue-200/50 dark:border-blue
     content:"";
     position:absolute; left:0; right:0; bottom:-1px;
     height: 12vw;
-    background: theme('colors.cream');
+    background: #fff3ec;
     clip-path: polygon(0 60%,100% 35%,100% 100%,0 100%);
     z-index:0;
   }
@@ -166,7 +166,7 @@ img.rounded-img { @apply rounded-full border border-blue-200/50 dark:border-blue
     /* —— 区块背景（奶油色）+ 顶部紫色斜切 —— */
     .section-about{
       position: relative;
-      background: theme('colors.cream');
+      background: #fff3ec;
       padding-block: clamp(64px, 8vw, 96px);
     }
     
@@ -236,13 +236,13 @@ img.rounded-img { @apply rounded-full border border-blue-200/50 dark:border-blue
     /* 区块背景：桃粉 + 顶部斜切（从奶油色过来） */
     .section-skills{
       position: relative;
-      background: theme('colors.peach');
+      background: #eeb6aa;
       padding-block: clamp(64px, 8vw, 96px);
     }
     .section-skills::before{
       content:"";
       position:absolute; left:0; right:0; top:-10vw;
-      height:12vw; background: theme('colors.cream');
+      height:12vw; background: #fff3ec;
       /* 右高左低的斜切 */
       clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 100%);
     }
@@ -251,7 +251,7 @@ img.rounded-img { @apply rounded-full border border-blue-200/50 dark:border-blue
       .section-skills{
         position: relative;
         overflow: hidden;                          /* 确保装饰不溢出 */
-        background: theme('colors.peach');
+        background: #eeb6aa;
         padding-block: clamp(64px, 8vw, 96px);
       }
       .section-skills > .container{
@@ -264,7 +264,7 @@ img.rounded-img { @apply rounded-full border border-blue-200/50 dark:border-blue
         content:"";
         position:absolute; left:0; right:0; top:-1px;
         height: clamp(70px, 9vw, 160px);
-        background: theme('colors.cream');
+        background: #fff3ec;
         /* 右高左低的斜切 */
         clip-path: polygon(0 65%, 100% 100, 100% 0, 0 0);
         z-index: 0;
@@ -357,7 +357,7 @@ img.rounded-img { @apply rounded-full border border-blue-200/50 dark:border-blue
           content:"";
           position:absolute; left:0; right:0; top:-1px;
           height: clamp(90px, 10vw, 160px);
-          background: theme('colors.peach');
+          background: #eeb6aa;
           /* 从左到右上扬的斜切（像参考图那样切进来） */
           clip-path: polygon(0 65%, 100% 12%, 100% 0, 0 0);
           z-index: 0;
