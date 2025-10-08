@@ -28,7 +28,7 @@ export default function About() {
               </p>
   
               <p>
-                I have a <strong>master's degree in Information Science</strong>, with a focus on <strong>Web Development</strong>.
+                I have a <strong>master&apos;s degree in Information Science</strong>, with a focus on <strong>Web Development</strong>.
                  I believe in “less is more”.
               </p>
   
