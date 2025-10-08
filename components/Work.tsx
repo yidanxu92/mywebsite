@@ -1,33 +1,26 @@
 // components/Work.tsx
 const projects = [
     {
-      title: "Personal Date Night",
-      desc: "For when you need a break from your partner but already got a babysitter. Now couples can go to different events in similar locations and at the same time. A group programming project.",
-      img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600&auto=format&fit=crop",
-      live: "#",
+      title: "The Cat Connection",
+      desc: "Find your purr‑fect match — one quiz, one cat, one forever home.",
+      img: "/img/catpaw3.jpg",
+      live: "https://cat-adoption-pi.vercel.app/",
       repo: "#",
     },
     {
-      title: "Newspaper Apparatus",
-      desc: "Generate a playful steampunk-style custom newspaper.",
-      img: "https://images.unsplash.com/photo-1529336953121-a9d95a888b84?q=80&w=1600&auto=format&fit=crop",
-      live: "#",
+      title: "ScoopDrop",
+      desc: "A full-stack scoop shop: artisanal ice cream delivered to your door.",
+      img: "/img/ice_cream1.jpg",
+      live: "https://foodapp-website-iota.vercel.app/",
       repo: "#",
     },
-    {
-      title: "Word Wiz",
-      desc: "Race a wizard to think up related words. Pair programming.",
-      img: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=1600&auto=format&fit=crop",
-      live: "#",
-      repo: "#",
-    },
+    
   ];
   
   export default function Work() {
     return (
       <section id="work" className="section-work">
         <div className="container">
-          <div className="work-overline">work</div>
           <h2 className="work-h2">A Selection Of Stuff I&apos;ve Built</h2>
   
           {projects.map((p, i) => (
@@ -46,9 +39,7 @@ const projects = [
                   <a className="btn-mint" href={p.live} target="_blank" rel="noreferrer">
                     View It Here
                   </a>
-                  <a className="btn-mint" href={p.repo} target="_blank" rel="noreferrer">
-                    View Github Repo
-                  </a>
+                
                 </div>
               </div>
   

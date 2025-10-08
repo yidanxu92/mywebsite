@@ -303,7 +303,7 @@ img.rounded-img { @apply rounded-full border border-blue-200/50 dark:border-blue
       }
       @media (min-width: 640px){ .skill-grid{ grid-template-columns: repeat(3, minmax(0,1fr)); } }
       @media (min-width: 768px){ .skill-grid{ grid-template-columns: repeat(4, minmax(0,1fr)); } }
-      @media (min-width: 1024px){ .skill-grid{ grid-template-columns: repeat(6, minmax(0,1fr)); } }
+      @media (min-width: 1024px){ .skill-grid{ grid-template-columns: repeat(5, minmax(0,1fr)); } }
     
       /* —— 单项 —— */
       .skill-item{

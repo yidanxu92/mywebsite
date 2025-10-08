@@ -31,7 +31,7 @@ export default function Nav() {
     <header className="header-brand sticky top-0 z-50 shadow">
       <div className="container flex items-center justify-between py-3">
         <div className="flex items-center gap-3">
-          <span className="badge bg-white/15 text-white">yidanxu.dev</span>
+    
           <nav className="hidden md:flex items-center">
             <Item id="home" label="home" />
             <Item id="about" label="about" />

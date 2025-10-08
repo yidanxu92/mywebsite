@@ -1,3 +1,4 @@
+"use client";
 import { useState, useEffect } from 'react';
 
 export default function Contact() {
@@ -5,13 +6,13 @@ export default function Contact() {
   const [submitCount, setSubmitCount] = useState(0);
   const [isBlocked, setIsBlocked] = useState(false);
 
-  // 从localStorage获取提交次数
+ 
   useEffect(() => {
     const count = localStorage.getItem('formSubmitCount') || '0';
     const lastReset = localStorage.getItem('lastResetDate') || '0';
     const now = new Date().getTime();
     
-    // 每月重置计数
+  
     if (now - parseInt(lastReset) > 30 * 24 * 60 * 60 * 1000) {
       localStorage.setItem('formSubmitCount', '0');
       localStorage.setItem('lastResetDate', now.toString());
@@ -43,23 +44,21 @@ export default function Contact() {
       });
 
       if (response.ok) {
-        // 增加提交计数
         const newCount = submitCount + 1;
         setSubmitCount(newCount);
         localStorage.setItem('formSubmitCount', newCount.toString());
         
-        // 如果达到100次，封锁表单
         if (newCount >= 100) {
           setIsBlocked(true);
         }
         
-        alert('消息已发送！我会尽快回复你。');
+        alert('message sent! I will get back to you soon.');
         e.currentTarget.reset();
       } else {
-        throw new Error('提交失败');
+        throw new Error('failed to submit');
       }
     } catch (error) {
-      alert('提交失败，请稍后重试。');
+      alert('failed to submit.');
     } finally {
       setIsSubmitting(false);
     }
@@ -68,7 +67,6 @@ export default function Contact() {
   return (
     <section id="contact" className="section-contact">
       <div className="container">
-        <div className="contact-overline">contact</div>
         <h2 className="contact-h2">Get In Touch</h2>
 
         {isBlocked ? (
@@ -83,7 +81,7 @@ export default function Contact() {
             onSubmit={handleSubmit}
           >
               <p className="contact-lead max-w-3xl md:col-span-2">
-                Dropping a line to say g’day, ask for my resume or see if we can build
+                Dropping a line to say hello, ask for my resume or see if we can build
                 something amazing together? I’d love to hear from you!
               </p>
               <p className="contact-lead mt-3 max-w-3xl md:col-span-2">

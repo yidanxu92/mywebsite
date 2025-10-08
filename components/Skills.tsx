@@ -2,10 +2,10 @@
 type Skill = { t: string; k: string; icon?: string };
 
 const items: Skill[] = [
-  { t: 'HTML5',         k: 'semantics · a11y',          icon: '/icons/html5.png' },
-  { t: 'CSS3 / SASS',   k: 'flex · grid · animation',   icon: '/icons/css3.png'  },
-  { t: 'JavaScript',    k: 'fetch · async · modules',   icon: '/icons/js.png'    },
-  { t: 'React',         k: 'hooks · state · router',    icon: '/icons/react.png' },
+  { t: 'HTML5',         k: '',          icon: '/icons/html5.png' },
+  { t: 'CSS3 / SASS',   k: '',   icon: '/icons/css3.png'  },
+  { t: 'JavaScript',    k: '',   icon: '/icons/js.png'    },
+  { t: 'React',         k: '',    icon: '/icons/react.png' },
   { t: 'Github',        k: '',                          icon: '/icons/github.png'},
   { t: 'Node.js',  k: '',                          icon: '/icons/nodejs.png'   },
   { t: 'Typescript',  k: '',                          icon: '/icons/typescript.png'},
@@ -14,12 +14,12 @@ const items: Skill[] = [
 
 ];
 
-/* 兜底缩写（没有 icon 时才用） */
 function abbrev(label: string) {
   if (label.startsWith('JavaScript')) return 'JS';
   if (label.startsWith('React'))      return '⚛︎';
   if (label.includes('GitHub'))       return 'GH';
   if (label.includes('Git '))         return 'Git';
+  if (label.includes('MongoDB'))          return 'MongoDB';
   if (label.includes('API'))          return 'API';
   if (label.toLowerCase().includes('access')) return 'A11Y';
   if (label.toLowerCase().includes('responsive')) return 'RWD';
@@ -32,7 +32,6 @@ export default function Skills() {
   return (
     <section id="skills" className="section-skills">
       <div className="container">
-        <div className="overline">skills & tools</div>
         <h2 className="h2-serif">My Toolbox &amp; Things I Can Do</h2>
         <p className="skills-lead">
           The skills, tools and technologies I use to bring your products to life:
