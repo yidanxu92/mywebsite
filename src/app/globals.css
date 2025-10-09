@@ -236,41 +236,24 @@ img.rounded-img { @apply rounded-full border border-blue-200/50 dark:border-blue
     /* 区块背景：桃粉 + 顶部斜切（从奶油色过来） */
     .section-skills{
       position: relative;
+      overflow: hidden;                          /* 确保装饰不溢出 */
       background: #eeb6aa;
       padding-block: clamp(64px, 8vw, 96px);
     }
+    .section-skills > .container{
+      position: relative;
+      z-index: 1;                                 /* 文字/图标在装饰上方 */
+    }
+  
+    /* 顶部的 cream 斜边条（从奶油色过渡进来） */
     .section-skills::before{
       content:"";
-      position:absolute; left:0; right:0; top:-10vw;
-      height:12vw; background: #fff3ec;
+      position:absolute; left:0; right:0; top:-1px;
+      height: clamp(70px, 9vw, 160px);
+      background: #fff3ec;
       /* 右高左低的斜切 */
-      clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 100%);
-    }
-
-    @layer components {
-      .section-skills{
-        position: relative;
-        overflow: hidden;                          /* 确保装饰不溢出 */
-        background: #eeb6aa;
-        padding-block: clamp(64px, 8vw, 96px);
-      }
-      .section-skills > .container{
-        position: relative;
-        z-index: 1;                                 /* 文字/图标在装饰上方 */
-      }
-    
-      /* 顶部的 cream 斜边条（从奶油色过渡进来） */
-      .section-skills::before{
-        content:"";
-        position:absolute; left:0; right:0; top:-1px;
-        height: clamp(70px, 9vw, 160px);
-        background: #fff3ec;
-        /* 右高左低的斜切 */
-        clip-path: polygon(0 65%, 100% 100, 100% 0, 0 0);
-        z-index: 0;
-      }
-    
-   
+      clip-path: polygon(0 65%, 100% 100%, 100% 0, 0 0);
+      z-index: 0;
     }
     
   
@@ -359,7 +342,7 @@ img.rounded-img { @apply rounded-full border border-blue-200/50 dark:border-blue
           height: clamp(90px, 10vw, 160px);
           background: #eeb6aa;
           /* 从左到右上扬的斜切（像参考图那样切进来） */
-          clip-path: polygon(0 0, 100% 0, 100% 65%, 0 12%);
+          clip-path: polygon(0 65%, 100% 12%, 100% 0, 0 0);
           z-index: 0;
         }
       
